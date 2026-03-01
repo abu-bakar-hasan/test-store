@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { CartProvider } from "@/context/CartContext";
+import { BottomNav } from "@/components/BottomNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,9 +17,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+};
+
 export const metadata: Metadata = {
   title: "Crickzon",
-  description: "Minimalist cricket accessories store",
+  description: "Premium cricket accessories and tournaments.",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Crickzon",
+  },
+  formatDetection: {
+    telephone: false,
+  },
 };
 
 export default function RootLayout({
@@ -28,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200 pb-16`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <CartProvider>
             <Navbar />
@@ -36,6 +52,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <BottomNav />
           </CartProvider>
         </ThemeProvider>
       </body>
