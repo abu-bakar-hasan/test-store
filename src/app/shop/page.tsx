@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ShopPage() {
   return (
@@ -17,8 +18,14 @@ export default function ShopPage() {
         
         {/* Logo and Cart on the right */}
         <div className="flex items-center gap-4">
-          <Link href="/" className="text-black dark:text-white font-bold text-lg tracking-tight uppercase">
-            Crickzon
+          <Link href="/" className="flex items-center justify-center">
+            <Image 
+              src="https://ik.imagekit.io/abh/Crickzon%20web%20logo%20main.png?updatedAt=1772378410716" 
+              alt="Crickzon"
+              width={120}
+              height={32}
+              className="h-8 w-auto object-contain dark:invert" 
+            />
           </Link>
           <button 
             className="text-black dark:text-white p-1 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" 

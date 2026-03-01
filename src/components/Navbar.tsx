@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ThemeToggle } from "./ThemeToggle";
 import { CartIcon } from "./CartIcon";
 
@@ -8,8 +9,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-black dark:text-white font-bold text-xl tracking-tight">
-              Crickzon
+            <Link href="/" className="flex items-center justify-center">
+              <Image 
+                src="https://ik.imagekit.io/abh/Crickzon%20web%20logo%20main.png?updatedAt=1772378410716" 
+                alt="Crickzon"
+                width={120}
+                height={32}
+                className="h-8 w-auto object-contain dark:invert" 
+              />
             </Link>
           </div>
           <nav className="hidden md:flex space-x-8">

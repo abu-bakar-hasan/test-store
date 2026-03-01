@@ -27,6 +27,10 @@ export const metadata: Metadata = {
   title: "Crickzon",
   description: "Premium cricket accessories and tournaments.",
   manifest: "/manifest.json",
+  icons: {
+    icon: "https://ik.imagekit.io/abh/crickzonapplogo.png?updatedAt=1772378568642",
+    apple: "https://ik.imagekit.io/abh/crickzonapplogo.png?updatedAt=1772378568642",
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
