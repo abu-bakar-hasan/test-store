@@ -1,65 +1,88 @@
-import Image from "next/image";
+import ProductCard from "@/components/ProductCard";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* Hero Section */}
+      <section className="mb-24 flex flex-col md:flex-row items-center justify-between gap-12 border border-slate-200 dark:border-slate-800 p-8 lg:p-12 rounded-xl bg-slate-50 dark:bg-slate-900">
+        <div className="w-full md:w-1/2 space-y-6">
+          <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-black dark:text-white leading-tight">
+            Premium Cricket Gear, Defined.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-md">
+            Engineered for performance. Crafted for professionals. Experience the
+            pinnacle of cricket accessories with our minimalistic, zero-compromise selection.
           </p>
+          <div className="pt-4">
+            <Link 
+              href="/shop" 
+              className="inline-block bg-black dark:bg-white text-white dark:text-slate-950 font-medium px-8 py-3 rounded-md hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors uppercase tracking-widest text-sm"
+            >
+              Explore Collection
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        
+        {/* Placeholder Box for Hero Image */}
+        <div className="w-full md:w-1/2 h-80 lg:h-96 border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 flex items-center justify-center rounded-lg">
+          <span className="text-slate-400 dark:text-slate-500 dark:text-slate-500 font-medium tracking-widest uppercase text-sm">
+            [Hero Image Placeholder]
+          </span>
         </div>
-      </main>
+      </section>
+
+      {/* Featured Products */}
+      <section className="mb-24">
+        <div className="flex justify-between items-end mb-8 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <h2 className="text-2xl font-bold text-black dark:text-white tracking-tight">Featured Products</h2>
+          <Link href="/shop" className="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white uppercase tracking-wider transition-colors">
+            View All &rarr;
+          </Link>
+        </div>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <ProductCard name="Pro-Grade English Willow" price="$450" category="Bat" />
+          <ProductCard name="Test Match Leather Ball" price="$25" category="Ball" />
+          <ProductCard name="Elite Batting Gloves" price="$85" category="Protection" />
+          <ProductCard name="High-Impact Leg Guards" price="$110" category="Protection" />
+        </div>
+      </section>
+
+      {/* Upcoming Tournaments List */}
+      <section>
+        <h2 className="text-2xl font-bold text-black dark:text-white tracking-tight mb-8 border-b border-slate-200 dark:border-slate-800 pb-4">
+          Upcoming Tournaments
+        </h2>
+        
+        <div className="space-y-4">
+          {[
+            { name: "Summer Bash T20", date: "August 15, 2026", location: "Central Ground" },
+            { name: "Premier Corporate League", date: "September 02, 2026", location: "Northside Arena" },
+            { name: "Winter Test Championship", date: "November 20, 2026", location: "National Stadium" }
+          ].map((tournament, idx) => (
+            <div 
+              key={idx} 
+              className="border border-slate-200 dark:border-slate-800 p-6 rounded-lg hover:border-slate-300 dark:hover:border-slate-700 transition-colors bg-white dark:bg-slate-950 flex flex-col md:flex-row md:items-center justify-between gap-4"
+            >
+              <div>
+                <h3 className="text-lg font-bold text-black dark:text-white mb-1">{tournament.name}</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 capitalize tracking-wide">
+                  {tournament.location}
+                </p>
+              </div>
+              <div className="flex items-center gap-6">
+                <span className="text-sm font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-md">
+                  {tournament.date}
+                </span>
+                <button className="text-sm border border-black dark:border-white text-black dark:text-white px-4 py-1.5 rounded-sm hover:bg-black dark:hover:bg-white hover:text-white transition-colors uppercase font-bold tracking-wider">
+                  Register
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
