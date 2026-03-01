@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
+import { CartIcon } from "./CartIcon";
 
 export default function Navbar() {
   return (
@@ -21,13 +22,7 @@ export default function Navbar() {
           </nav>
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Link href="/shop/cart" className="text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white transition-colors p-2">
-              <span className="sr-only">Cart</span>
-              {/* Simple Cart Wireframe Icon */}
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-            </Link>
+            <CartIcon />
           </div>
         </div>
       </div>
