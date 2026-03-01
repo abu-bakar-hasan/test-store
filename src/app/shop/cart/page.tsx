@@ -114,9 +114,9 @@ export default function CartPage() {
 
       {/* Sticky Action Bar */}
       <div className="fixed bottom-0 w-full bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 p-4 z-20">
-        <button className="w-full bg-black dark:bg-white text-white dark:text-slate-950 text-xs font-bold uppercase tracking-widest py-4 rounded-md hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors shadow-sm">
+        <Link href="/shop/checkout" className="w-full flex justify-center text-center bg-black dark:bg-white text-white dark:text-slate-950 text-xs font-bold uppercase tracking-widest py-4 rounded-md hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors shadow-sm">
           Proceed to Checkout
-        </button>
+        </Link>
       </div>
     </div>
   );
