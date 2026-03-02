@@ -1,6 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
 
+const categoryImages: Record<string, string> = {
+  shoes: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769347110/shoes-crickzon_nslnil.png",
+  "cricket-kit": "https://res.cloudinary.com/dfkepdzps/image/upload/v1769347111/kit-crickzon_vecjiw.png",
+  "protective-gear": "https://res.cloudinary.com/dfkepdzps/image/upload/v1769607650/Pads_xadsdx.png",
+  pads: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769607650/Pads_xadsdx.png",
+  "elbow-pad": "https://res.cloudinary.com/dfkepdzps/image/upload/v1769607650/ElbowGuards_zyjcik.png",
+  helmet: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769607651/Helmet_csnvgf.png",
+  balls: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769347111/ball-crickzon_xixv3w.png",
+  wicket: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769347111/wicket-crickzon_qgqdyg.png",
+  bats: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769347110/bat-crickzon_rrskpn.png",
+  "keeping-gloves": "https://res.cloudinary.com/dfkepdzps/image/upload/v1769607650/KeepingGloves_dqsvl6.png",
+  "batting-gloves": "https://res.cloudinary.com/dfkepdzps/image/upload/v1769347110/gloves-crickzon_agnplq.png",
+  "ball-throwers": "https://res.cloudinary.com/dfkepdzps/image/upload/v1769607651/BallThrowers_mju36b.png",
+  clothing: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769658553/DefaultCricketKits_owxyeq.png",
+  accessories: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769649533/DefaultWicketNgills_twatbl.png",
+};
+
 export default function ShopPage() {
   return (
     <div className="w-full min-h-screen bg-white dark:bg-slate-950 flex flex-col">
@@ -49,8 +66,12 @@ export default function ShopPage() {
         {/* Shop by Categories Section */}
         <section>
           <h2 className="text-black dark:text-white font-semibold text-sm uppercase tracking-widest mb-4">Shop by Categories</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {["Bats", "Balls", "Protective Gear", "Clothing", "Accessories"].map((category, idx) => {
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              "Bats", "Balls", "Batting Gloves", "Keeping Gloves", 
+              "Pads", "Helmet", "Shoes", "Cricket Kit",
+              "Elbow Pad", "Ball Throwers", "Wicket"
+            ].map((category, idx) => {
               const categorySlug = category.toLowerCase().replace(" ", "-");
               return (
               <Link
@@ -58,8 +79,17 @@ export default function ShopPage() {
                 key={idx}
                 className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm overflow-hidden hover:border-black dark:hover:border-white transition-colors cursor-pointer group flex flex-col"
               >
-                <div className="aspect-square w-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center">
-                  <span className="text-slate-400 dark:text-slate-500 dark:text-slate-500 text-xs font-medium tracking-widest uppercase">[Image]</span>
+                <div className="aspect-square w-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center p-4 relative">
+                  {categoryImages[categorySlug] ? (
+                    <Image 
+                      src={categoryImages[categorySlug]} 
+                      alt={category} 
+                      fill 
+                      className="object-contain p-4 mix-blend-multiply dark:mix-blend-normal hover:scale-105 transition-transform" 
+                    />
+                  ) : (
+                    <span className="text-slate-400 dark:text-slate-500 text-xs font-medium tracking-widest uppercase">[Image]</span>
+                  )}
                 </div>
                 <div className="p-3 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 flex items-center justify-between">
                   <h3 className="text-xs font-bold text-black dark:text-white uppercase tracking-wide">{category}</h3>

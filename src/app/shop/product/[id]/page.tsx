@@ -1,5 +1,17 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { AddToCartBar } from '@/components/AddToCartBar';
+
+const categoryImages: Record<string, string> = {
+  shoes: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769658828/DefaultSpikeShoes_vopxyy.png",
+  kits: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769658553/DefaultCricketKits_owxyeq.png",
+  pads: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769658553/DefaultPads_x0fvmq.png",
+  "elbow-guards": "https://res.cloudinary.com/dfkepdzps/image/upload/v1769658553/DefaultElbowGuard_jik9rs.png",
+  helmets: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769649533/DefaultHelmet_uplgw0.png",
+  balls: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769649533/DefaultBall_r87zqb.png",
+  wickets: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769649533/DefaultWicketNgills_twatbl.png",
+  bats: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769649533/DefaultBat_ntjogm.png",
+};
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -21,8 +33,18 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       </header>
 
       {/* Image */}
-      <div className="w-full aspect-square bg-slate-100 dark:bg-slate-800 flex items-center justify-center border-b border-slate-200 dark:border-slate-800">
-         <span className="text-slate-400 dark:text-slate-500 dark:text-slate-500 font-medium tracking-widest uppercase">[Product Image Area]</span>
+      <div className="w-full aspect-square bg-slate-100 dark:bg-slate-800 flex items-center justify-center border-b border-slate-200 dark:border-slate-800 relative overflow-hidden">
+         {/* Simple heuristic to match id components to our default images */}
+         {Object.entries(categoryImages).find(([key]) => id.toLowerCase().includes(key)) ? (
+            <Image 
+              src={Object.entries(categoryImages).find(([key]) => id.toLowerCase().includes(key))![1]} 
+              alt={id} 
+              fill 
+              className="object-contain p-8 mix-blend-multiply dark:mix-blend-normal" 
+            />
+         ) : (
+           <span className="text-slate-400 dark:text-slate-500 font-medium tracking-widest uppercase">[Product Image Area]</span>
+         )}
       </div>
 
       {/* Details */}

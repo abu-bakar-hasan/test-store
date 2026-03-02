@@ -1,4 +1,16 @@
 import Link from 'next/link';
+import Image from 'next/image';
+
+const categoryImages: Record<string, string> = {
+  shoes: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769658828/DefaultSpikeShoes_vopxyy.png",
+  kits: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769658553/DefaultCricketKits_owxyeq.png",
+  pads: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769658553/DefaultPads_x0fvmq.png",
+  "elbow-guards": "https://res.cloudinary.com/dfkepdzps/image/upload/v1769658553/DefaultElbowGuard_jik9rs.png",
+  helmets: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769649533/DefaultHelmet_uplgw0.png",
+  balls: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769649533/DefaultBall_r87zqb.png",
+  wickets: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769649533/DefaultWicketNgills_twatbl.png",
+  bats: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769649533/DefaultBat_ntjogm.png",
+};
 
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
@@ -29,8 +41,17 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
               key={item}
               className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm overflow-hidden hover:border-black dark:hover:border-white transition-colors group flex flex-col"
             >
-              <div className="aspect-[4/5] w-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center">
-                <span className="text-slate-400 dark:text-slate-500 dark:text-slate-500 text-[10px] font-medium tracking-widest uppercase">[IMG]</span>
+              <div className="aspect-[4/5] w-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center relative p-4">
+                {categoryImages[category.toLowerCase()] ? (
+                  <Image 
+                    src={categoryImages[category.toLowerCase()]} 
+                    alt={category} 
+                    fill 
+                    className="object-contain p-4 mix-blend-multiply dark:mix-blend-normal hover:scale-105 transition-transform" 
+                  />
+                ) : (
+                  <span className="text-slate-400 dark:text-slate-500 text-[10px] font-medium tracking-widest uppercase">[IMG]</span>
+                )}
               </div>
               <div className="p-3 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 flex flex-col">
                 <h3 className="text-[10px] sm:text-xs font-medium text-black dark:text-white uppercase tracking-wide truncate mb-1">[{category} {item}]</h3>

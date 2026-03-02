@@ -1,15 +1,26 @@
+import Image from "next/image";
+
 interface ProductCardProps {
   name: string;
   price: string;
   category: string;
+  imageUrl?: string;
 }
 
-export default function ProductCard({ name, price, category }: ProductCardProps) {
+export default function ProductCard({ name, price, category, imageUrl }: ProductCardProps) {
   return (
     <div className="group border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden bg-white dark:bg-slate-950 hover:border-slate-300 dark:hover:border-slate-700 transition-colors p-4 flex flex-col h-full">
-      {/* Grayscale placeholder for image */}
-      <div className="aspect-square w-full bg-slate-100 dark:bg-slate-800 rounded-md mb-4 flex items-center justify-center">
-        <span className="text-slate-400 dark:text-slate-500 dark:text-slate-500 text-sm font-medium tracking-wide">[Image Placeholder]</span>
+      <div className="aspect-square w-full bg-slate-100 dark:bg-slate-800 rounded-md mb-4 flex items-center justify-center relative overflow-hidden">
+        {imageUrl ? (
+          <Image 
+            src={imageUrl} 
+            alt={name} 
+            fill 
+            className="object-contain p-2 mix-blend-multiply dark:mix-blend-normal" 
+          />
+        ) : (
+          <span className="text-slate-400 dark:text-slate-500 text-sm font-medium tracking-wide">[No Image]</span>
+        )}
       </div>
       
       <div className="flex flex-col flex-grow justify-between">
