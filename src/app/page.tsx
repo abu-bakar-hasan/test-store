@@ -1,86 +1,135 @@
-import ProductCard from "@/components/ProductCard";
+import Image from "next/image";
 import Link from "next/link";
+import { Menu, Star, ShieldCheck, ArrowRight, ShoppingCart, Circle } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Hero Section */}
-      <section className="mb-24 flex flex-col md:flex-row items-center justify-between gap-12 border border-slate-200 dark:border-slate-800 p-8 lg:p-12 rounded-xl bg-slate-50 dark:bg-slate-900">
-        <div className="w-full md:w-1/2 space-y-6">
-          <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-black dark:text-white leading-tight">
-            Premium Cricket Gear, Defined.
-          </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-md">
-            Engineered for performance. Crafted for professionals. Experience the
-            pinnacle of cricket accessories with our minimalistic, zero-compromise selection.
-          </p>
-          <div className="pt-4">
-            <Link 
-              href="/shop" 
-              className="inline-block bg-black dark:bg-white text-white dark:text-slate-950 font-medium px-8 py-3 rounded-md hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors uppercase tracking-widest text-sm"
-            >
-              Explore Collection
-            </Link>
+    <div className="min-h-screen bg-white font-sans flex flex-col relative overflow-hidden">
+      {/* 1. Header (White Background) */}
+      <header className="flex items-center justify-between p-6 bg-white z-20 relative">
+        <Link href="/">
+          <Image
+            src="https://ik.imagekit.io/abh/Crickzon%20web%20logo%20main.png?updatedAt=1772378410716"
+            alt="Crickzon Logo"
+            width={120}
+            height={32}
+            className="h-8 w-auto object-contain"
+            priority
+          />
+        </Link>
+        <button className="text-black p-2 -mr-2">
+          <Menu className="w-6 h-6" />
+        </button>
+      </header>
+
+      {/* 2. Top Hero Typography (White/Light Background) */}
+      <section className="px-6 pt-2 pb-12 bg-white relative z-10">
+        <div className="flex justify-between items-start max-w-md mx-auto">
+          <div className="flex flex-col">
+            <span className="italic text-sm text-slate-600">Built with</span>
+            <span className="font-bold text-5xl tracking-tighter text-black">STYLE</span>
+          </div>
+          <div className="flex flex-col items-end text-right mt-16">
+            <span className="italic text-sm text-slate-600">Made for</span>
+            <span className="font-bold text-5xl tracking-tighter text-black">SKILL</span>
           </div>
         </div>
-        
-        {/* Placeholder Box for Hero Image */}
-        <div className="w-full md:w-1/2 h-80 lg:h-96 border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 flex items-center justify-center rounded-lg">
-          <span className="text-slate-400 dark:text-slate-500 dark:text-slate-500 font-medium tracking-widest uppercase text-sm">
-            [Hero Image Placeholder]
-          </span>
-        </div>
       </section>
 
-      {/* Featured Products */}
-      <section className="mb-24">
-        <div className="flex justify-between items-end mb-8 border-b border-slate-200 dark:border-slate-800 pb-4">
-          <h2 className="text-2xl font-bold text-black dark:text-white tracking-tight">Featured Products</h2>
-          <Link href="/shop" className="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white uppercase tracking-wider transition-colors">
-            View All &rarr;
-          </Link>
-        </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <ProductCard name="Pro-Grade English Willow" price="$450" category="Bat" />
-          <ProductCard name="Test Match Leather Ball" price="$25" category="Ball" />
-          <ProductCard name="Elite Batting Gloves" price="$85" category="Protection" />
-          <ProductCard name="High-Impact Leg Guards" price="$110" category="Protection" />
-        </div>
-      </section>
+      {/* 3. The Overlapping Batsman Image */}
+      <div className="relative z-30 w-full flex justify-center -mt-40 -mb-24 pointer-events-none max-w-md mx-auto">
+        <Image
+          src="https://res.cloudinary.com/dfkepdzps/image/upload/v1771076028/batsman-hero-pose2_lcpkkd.png"
+          alt="Cricket Batsman"
+          width={400}
+          height={500}
+          className="w-full h-auto object-contain drop-shadow-2xl translate-x-4"
+          priority
+        />
+      </div>
 
-      {/* Upcoming Tournaments List */}
-      <section>
-        <h2 className="text-2xl font-bold text-black dark:text-white tracking-tight mb-8 border-b border-slate-200 dark:border-slate-800 pb-4">
-          Upcoming Tournaments
-        </h2>
-        
-        <div className="space-y-4">
-          {[
-            { name: "Summer Bash T20", date: "August 15, 2026", location: "Central Ground" },
-            { name: "Premier Corporate League", date: "September 02, 2026", location: "Northside Arena" },
-            { name: "Winter Test Championship", date: "November 20, 2026", location: "National Stadium" }
-          ].map((tournament, idx) => (
-            <div 
-              key={idx} 
-              className="border border-slate-200 dark:border-slate-800 p-6 rounded-lg hover:border-slate-300 dark:hover:border-slate-700 transition-colors bg-white dark:bg-slate-950 flex flex-col md:flex-row md:items-center justify-between gap-4"
+      {/* 4. The Main Blue Container */}
+      <section className="bg-blue-600 rounded-t-3xl text-white pb-20 pt-24 px-6 relative z-10 flex-1 flex flex-col">
+        <div className="max-w-md mx-auto w-full">
+          {/* Hero Text */}
+          <div className="space-y-1">
+            <p className="text-sm font-bold uppercase tracking-wider text-white">New Arrivals</p>
+            <h1 className="text-4xl font-bold leading-tight tracking-tight mt-1">
+              Where Skill <br />
+              Meets Power
+            </h1>
+            <p className="text-white/80 text-sm mt-3 pb-1">
+              Shop into the future of cricket accessories
+            </p>
+          </div>
+
+          {/* Action Button */}
+          <div className="mt-4">
+            <Link
+              href="/shop"
+              className="inline-flex items-center gap-2 bg-white text-blue-600 rounded-full py-2 px-4 shadow-lg hover:bg-slate-50 transition-colors font-bold"
             >
-              <div>
-                <h3 className="text-lg font-bold text-black dark:text-white mb-1">{tournament.name}</h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 capitalize tracking-wide">
-                  {tournament.location}
-                </p>
+              <span>New Drops</span>
+              <div className="bg-blue-600 text-white rounded-full p-1 flex items-center justify-center">
+                <ArrowRight className="w-4 h-4" />
               </div>
-              <div className="flex items-center gap-6">
-                <span className="text-sm font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-md">
-                  {tournament.date}
-                </span>
-                <button className="text-sm border border-black dark:border-white text-black dark:text-white px-4 py-1.5 rounded-sm hover:bg-black dark:hover:bg-white hover:text-white transition-colors uppercase font-bold tracking-wider">
-                  Register
+            </Link>
+          </div>
+
+          {/* Features Row */}
+          <div className="grid grid-cols-3 gap-2 mt-8">
+            <div className="flex flex-col items-center text-center gap-2">
+              <Star className="w-6 h-6 text-white" />
+              <span className="text-xs font-medium leading-tight mt-1">Pro Graded<br/>Gears</span>
+            </div>
+            <div className="flex flex-col items-center text-center gap-2">
+              <Circle className="w-6 h-6 text-white" />
+              <span className="text-xs font-medium leading-tight mt-1">Tournament<br/>Ready</span>
+            </div>
+            <div className="flex flex-col items-center text-center gap-2">
+              <ShieldCheck className="w-6 h-6 text-white" />
+              <span className="text-xs font-medium leading-tight mt-1">Match<br/>Tested</span>
+            </div>
+          </div>
+
+          {/* Tournament Teaser Box */}
+          <div className="mt-8 border-2 border-dashed border-white/30 rounded-xl p-6 flex items-center justify-center">
+            <p className="italic font-bold text-white/50 tracking-wider">
+              TOURNAMENT..! COMING SOON...
+            </p>
+          </div>
+
+          {/* 5. Featured Product Card */}
+          {/* Card Container nested inside the blue section overlapping at the bottom */}
+          <div className="bg-white rounded-2xl p-4 shadow-xl text-center text-blue-600 mt-8 relative z-10 flex flex-col items-center">
+            
+            {/* Product Image */}
+            <div className="w-full bg-slate-50 rounded-xl aspect-[4/3] relative mb-4 flex items-center justify-center p-4">
+              <Image
+                src="https://res.cloudinary.com/dfkepdzps/image/upload/v1771076173/product4_bfbajp.png"
+                alt="Cricket Jersey"
+                fill
+                className="object-contain p-4 mix-blend-multiply"
+              />
+            </div>
+
+            {/* Product Info */}
+            <div className="w-full text-left">
+              <h3 className="text-2xl font-black text-blue-600 uppercase tracking-tight leading-none mb-1">Cricket Jersey</h3>
+              <p className="text-sm font-semibold text-blue-400">Customizable Sports-wear</p>
+              
+              {/* Price Bar */}
+              <div className="bg-blue-600 text-white rounded-full p-1.5 flex items-center justify-between w-full shadow-md mt-4">
+                <button className="bg-white text-blue-600 rounded-full p-2.5 flex items-center justify-center hover:bg-slate-100 transition-colors shrink-0">
+                  <ShoppingCart className="w-5 h-5" />
                 </button>
+                <div className="flex-1 flex justify-end pr-4">
+                  <span className="font-bold text-lg">₹ 4,999.99</span>
+                </div>
               </div>
             </div>
-          ))}
+
+          </div>
         </div>
       </section>
     </div>
