@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, Star, ShieldCheck, ArrowRight, ShoppingCart, Circle } from "lucide-react";
+import { Menu, Star, ShieldCheck, ArrowRight, ShoppingCart, Circle, User } from "lucide-react";
 
 export default function Home() {
   return (
@@ -17,9 +17,14 @@ export default function Home() {
             priority
           />
         </Link>
-        <button className="text-black p-2 -mr-2">
-          <Menu className="w-6 h-6" />
-        </button>
+        <div className="flex items-center gap-1 -mr-2">
+          <Link href="/auth/login" className="text-black p-2 hover:bg-slate-50 rounded-full transition-colors">
+            <User className="w-6 h-6 stroke-[1.5]" />
+          </Link>
+          <button className="text-black p-2 hover:bg-slate-50 rounded-full transition-colors">
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
       </header>
 
       {/* 2. Top Hero Typography (White/Light Background) */}

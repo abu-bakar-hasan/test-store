@@ -4,39 +4,6 @@ import Image from "next/image";
 export default function ShopPage() {
   return (
     <div className="w-full min-h-screen bg-white dark:bg-slate-950 flex flex-col">
-      {/* Header */}
-      <header className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 px-4 py-4">
-        {/* Hamburger Menu on the left */}
-        <button 
-          className="text-black dark:text-white p-1 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" 
-          aria-label="Menu"
-        >
-          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-        
-        {/* Logo and Cart on the right */}
-        <div className="flex items-center gap-4">
-          <Link href="/" className="flex items-center justify-center">
-            <Image 
-              src="https://ik.imagekit.io/abh/Crickzon%20web%20logo%20main.png?updatedAt=1772378410716" 
-              alt="Crickzon"
-              width={120}
-              height={32}
-              className="h-8 w-auto object-contain dark:invert" 
-            />
-          </Link>
-          <button 
-            className="text-black dark:text-white p-1 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors" 
-            aria-label="Cart"
-          >
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </button>
-        </div>
-      </header>
 
       {/* Navigation Div */}
       <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 px-4 py-3">
