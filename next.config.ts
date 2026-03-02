@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   // Fix Turbopack integration for @serwist/next
   turbopack: {},
   images: {
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -13,6 +14,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "res.cloudinary.com",
+      },
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
       }
     ],
   },

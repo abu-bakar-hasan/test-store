@@ -18,6 +18,14 @@ const categoryImages: Record<string, string> = {
   accessories: "https://res.cloudinary.com/dfkepdzps/image/upload/v1769649533/DefaultWicketNgills_twatbl.png",
 };
 
+const brandLogos = [
+  { id: "mrf", name: "MRF", url: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Mrf-logo.png" },
+  { id: "kookaburra", name: "Kookaburra", url: "https://upload.wikimedia.org/wikipedia/commons/2/22/Kookaburra_sports.png" },
+  { id: "ceat", name: "CEAT", url: "https://upload.wikimedia.org/wikipedia/commons/b/ba/CEAT_Logo.svg" },
+  { id: "sg", name: "SG", url: "https://upload.wikimedia.org/wikipedia/commons/d/d1/SG-Logo.png" },
+  { id: "ss", name: "SS", url: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Sareen_Sports_Industries_Logos%2C_2022.png" },
+];
+
 export default function ShopPage() {
   return (
     <div className="w-full min-h-screen bg-white dark:bg-slate-950 flex flex-col">
@@ -51,13 +59,18 @@ export default function ShopPage() {
         <section className="mb-8">
           <h2 className="text-black dark:text-white font-semibold text-sm uppercase tracking-widest mb-4">Brands</h2>
           <div className="flex gap-4 overflow-x-auto pb-4 snap-x">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
+            {brandLogos.map((brand) => (
               <Link
-                href={`/shop/brand/brand-${item}`}
-                key={item} 
-                className="snap-start shrink-0 w-32 h-20 border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-white hover:border-black dark:hover:border-white transition-colors flex items-center justify-center text-center rounded-sm"
+                href={`/shop/brand/${brand.id}`}
+                key={brand.id} 
+                className="snap-start shrink-0 w-32 h-20 border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-200 hover:bg-white dark:hover:bg-white hover:border-black dark:hover:border-slate-400 transition-colors flex items-center justify-center text-center rounded-sm relative group overflow-hidden"
               >
-                <span className="text-xs text-slate-400 dark:text-slate-500 dark:text-slate-500 uppercase tracking-widest font-medium">Brand {item}</span>
+                <Image 
+                  src={brand.url}
+                  alt={brand.name}
+                  fill
+                  className="object-contain p-3 mix-blend-multiply group-hover:scale-105 transition-transform"
+                />
               </Link>
             ))}
           </div>
